@@ -15,12 +15,12 @@
 
 <body style="font-family: 'Inter', sans-serif;">
 
-    <section class="flex h-screen">
+    <section class="flex h-screen overflow-auto">
 
 
 
 
-        <div class="w-1/5 border-r-2 h-full border-gray-200 p-6 flex flex-col justify-between ">
+        <div class="w-1/5 border-r-2 h-full border-gray-200 p-6 flex flex-col justify-between sticky top-0 ">
 
 
 
@@ -36,7 +36,7 @@
                     <a href="encrypt.html">
                         <button style="background-image: url('img/home.svg'); background-position-x:4%;"
                         class="w-full bg-no-repeat bg-center  py-3 rounded-lg">
-                        <p class="text-left pl-12 font-semibold">
+                        <p class="text-left pl-12  font-semibold">
                             Home
                         </p>
                     </button>
@@ -44,7 +44,7 @@
                     <a href="files.html">
                         <button style="background-image: url('img/3-layers.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center bg-blue-100 py-3 rounded-lg">
-                            <p class="text-left  text-blue-500 pl-12 font-semibold">
+                            <p class="text-left pl-12 font-semibold text-blue-500">
                                 Files
                             </p>
                         </button>
@@ -62,8 +62,8 @@
                         Settings
                     </p>
                 </button>
-
-                <div class="flex pl-2">
+                <hr>
+                <div class="flex pl-2 py-3">
                     <div class="bg-blue-100 rounded-full h-fit p-2">
                         <img src="img/user.svg" alt="">
                     </div>
@@ -81,13 +81,30 @@
         </div>
 
 
+        <div class="p-10 h-screen w-full">
+            <div class="flex flex-col gap-2 fixed">
+                <h1 class="font-bold text-xl">Encrypt Your files</h1>
+                <p class="font-semibold text-sm text-gray-500">Upload all your files to encrypt them.</p>
+            </div>
 
 
+            <div class="h-full flex items-center justify-center">
+                <div class=" shadow border border-gray-200 w-full h-4/5 py-32">
+                    <div class="flex justify-between items-center px-10">
+                        <h1>
+                            All FIles
+                        </h1>
+                        <a href="#"> <button
+                            class="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring px-20 focus:border-blue-300 w-fit font-semibold flex gap-2">
+                            <img src="img/upload-cloud.svg" alt="">
+                            <p>Upload File</p>
+                        </button></a>
+                    </div>
+                   
+                </div>
+            </div>
 
         </div>
-
-
-        <div></div>
     </section>
 </body>
 
