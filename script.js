@@ -1,8 +1,13 @@
 
-    function submitForm(event) {
-        
-        event.preventDefault();
+function submitForm(event) {
 
- 
-        window.location.href = 'encrypt.html'; 
-    }
+    event.preventDefault();
+
+
+    window.location.href = 'encrypt.html';
+}
+
+
+function logout() {
+    window.location.href = "index.html";
+}
