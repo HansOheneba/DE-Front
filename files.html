@@ -12,6 +12,11 @@
         rel="stylesheet">
     <link href="output.css" rel="stylesheet">
     <title>Data Encryption</title>
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
 </head>
 
 <body style="font-family: 'Inter', sans-serif;">
@@ -159,11 +164,99 @@
                         <h1 class="font-semibold text-xl">
                             All FIles
                         </h1>
-                        <a href="#"> <button
-                                class="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring px-10 focus:border-blue-300 w-fit font-semibold flex gap-2">
+                        <div x-data="{ modelOpen: false }">
+                            <button @click="modelOpen =!modelOpen"
+                                class="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring px-10 focus:border-blue-300 font-semibold flex gap-2">
                                 <img src="img/upload-cloud.svg" alt="">
                                 <p>Upload File</p>
-                            </button></a>
+    
+                            </button>
+    
+                            <div x-show="modelOpen"
+                                class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
+                                aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                <div class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
+                                    <div x-cloak @click="modelOpen = true" x-show="modelOpen"
+                                        x-transition:enter="transition ease-out duration-300 transform"
+                                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                        x-transition:leave="transition ease-in duration-200 transform"
+                                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                                        class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-60"
+                                        aria-hidden="true"></div>
+    
+                                    <div x-cloak x-show="modelOpen"
+                                        x-transition:enter="transition ease-out duration-300 transform"
+                                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                        x-transition:leave="transition ease-in duration-200 transform"
+                                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                        class="inline-block w-fit max-w-md p-6 my-10 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl xl:max-w-xl"
+                                        style="z-index: 100;">
+                                        <div class="flex items-center justify-between">
+                                            <h1 class="text-xl w-full font-bold text-gray-800 ">
+                                                Encrypt File</h1>
+    
+    
+                                        </div>
+    
+                                        <p class="mt-2 text-md text-gray-800 w-fit ">
+                                            complete the form to encrypt your data
+                                        </p>
+    
+                                        <form action="" method="post" enctype="multipart/form-data">
+    
+                                            <div class="py-2">
+                                                <label for="textFile" class=" text-gray-600 text-sm font-medium">Text
+                                                    File</label><br>
+                                                <input type="file" id="textFile" name="textFile"
+                                                    class="p-2 w-full border rounded-lg bg-white cursor-pointer text-gray-400"
+                                                    accept=".txt">
+    
+    
+    
+                                            </div>
+                                            <div class="py-2">
+                                                <label for="imageFile" class=" text-gray-600 text-sm font-medium">Image
+                                                    File</label><br>
+                                                <input type="file" id="imageFile" name="imageFile"
+                                                    class="p-2 w-full border rounded-lg bg-white cursor-pointer text-gray-400"
+                                                    accept="image/*">
+    
+                                            </div>
+    
+    
+                                            <div class="mb-4 py-2">
+                                                <label for="name" class="block text-gray-600 text-sm font-medium">Output
+                                                    file name</label>
+                                                <input type="name" id="name" name="name"
+                                                    class=" p-2 w-full border rounded-md"
+                                                    placeholder="provide a name for your encrypted file">
+                                            </div>
+    
+    
+    
+    
+    
+                                        </form>
+    
+                                        <div class="flex justify-center mt-6">
+                                            <button for="show" @click="modelOpen = false" type="button"
+                                                class="mr-2 w-1/2 py-2 text-sm tracking-wide capitalize transition-colors border border-gray-300 duration-200 transform bg-white hover:bg-gray-200 rounded-md">
+                                                Cancel
+                                            </button>
+                                            <button for="show" @click="modelOpen = false" type="button"
+                                                class="justify-center bg-blue-500 text-white hover:bg-blue-600 focus:ring focus:outline-none shadow-md focus:ring-gray-100 font-medium rounded-lg text-sm w-1/2 py-2.5 text-center inline-flex items-center">
+                                                <span><input type="submit" value="Encrypt File"></span>
+                                            </button>
+    
+    
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="flex flex-col">
                         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">

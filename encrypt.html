@@ -12,6 +12,11 @@
         rel="stylesheet">
     <link href="output.css" rel="stylesheet">
     <title>Data Encryption</title>
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
 </head>
 
 <body style="font-family: 'Inter', sans-serif;">
@@ -34,14 +39,14 @@
 
 
                 <div>
-                   <a href="encrypt.html">
-                    <button style="background-image: url('img/home.svg'); background-position-x:4%;"
-                    class="w-full bg-no-repeat bg-center bg-blue-100 py-3 rounded-lg">
-                    <p class="text-left pl-12 text-blue-500 font-semibold">
-                        Home
-                    </p>
-                </button>
-                   </a>
+                    <a href="encrypt.html">
+                        <button style="background-image: url('img/home.svg'); background-position-x:4%;"
+                            class="w-full bg-no-repeat bg-center bg-blue-100 py-3 rounded-lg">
+                            <p class="text-left pl-12 text-blue-500 font-semibold">
+                                Home
+                            </p>
+                        </button>
+                    </a>
                     <a href="files.html">
                         <button style="background-image: url('img/3-layers.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center py-3 rounded-lg">
@@ -59,11 +64,11 @@
             <div>
                 <a href="settings.html">
                     <button style="background-image: url('img/settings.svg'); background-position-x:4%;"
-                    class="w-full bg-no-repeat bg-center py-3 rounded-lg my-3">
-                    <p class="text-left pl-12 font-semibold">
-                        Settings
-                    </p>
-                </button>
+                        class="w-full bg-no-repeat bg-center py-3 rounded-lg my-3">
+                        <p class="text-left pl-12 font-semibold">
+                            Settings
+                        </p>
+                    </button>
                 </a>
                 <hr>
                 <div class="flex pl-2 py-3">
@@ -73,11 +78,7 @@
                     <div class="pl-2 w-full">
                         <div class="flex justify-between items-center">
                             <p class="font-semibold">Hans Opoku</p>
-                            <style>
-                                [x-cloak] {
-                                    display: none
-                                }
-                            </style>
+
                             <div x-data="{ modelOpen: false }">
                                 <button @click="modelOpen =!modelOpen"
                                     class="justify-center text-white text-md hover:bg-red-200  focus:ring-4 focus:outline-none  focus:ring-gray-100 font-medium rounded-lg px-2 py-2  ">
@@ -86,10 +87,10 @@
 
                                 </button>
 
-                                <div x-show="modelOpen" class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
+                                <div x-show="modelOpen"
+                                    class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
                                     aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                                    <div
-                                        class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
+                                    <div class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
                                         <div x-cloak @click="modelOpen = true" x-show="modelOpen"
                                             x-transition:enter="transition ease-out duration-300 transform"
                                             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
@@ -105,7 +106,8 @@
                                             x-transition:leave="transition ease-in duration-200 transform"
                                             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                                             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                            class="inline-block w-fit max-w-md p-6 my-10 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl xl:max-w-xl" style="z-index: 100;">
+                                            class="inline-block w-fit max-w-md p-6 my-10 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl xl:max-w-xl"
+                                            style="z-index: 100;">
                                             <div class="flex items-center justify-between">
                                                 <h1 class="text-xl w-full text-center font-bold text-gray-800 ">
                                                     Logout</h1>
@@ -117,7 +119,7 @@
                                                 Are you sure you want to logout of your account?
                                             </p>
 
-                                            <x-text-input name="id" type="hidden" value="{{ $site->id }}" />
+
 
                                             <div class="flex justify-center mt-6">
                                                 <button for="show" @click="modelOpen = false" type="button"
@@ -154,13 +156,16 @@
 
 
             <div class="py-20 flex items-center justify-center">
-                <div class="flex justify-center rounded-md border flex-col items-center border-gray-200 my-auto w-full py-32">
+                <div
+                    class="flex justify-center rounded-md border flex-col items-center border-gray-200 my-auto w-full py-32">
 
                     <div class="flex">
-                        <img draggable="false" style="transform: rotate(-25deg); z-index: -10;" class="-mr-16" src="img/Paper.svg" alt="">
+                        <img draggable="false" style="transform: rotate(-25deg); z-index: -10;" class="-mr-16"
+                            src="img/Paper.svg" alt="">
                         <img draggable="false" style="z-index: -9;" class="-mt-2" src="img/Paper.svg" alt="">
-                        <img draggable="false" style="transform: rotate(25deg); z-index: -8;" class="-ml-16" src="img/Paper.svg" alt="">
-                       
+                        <img draggable="false" style="transform: rotate(25deg); z-index: -8;" class="-ml-16"
+                            src="img/Paper.svg" alt="">
+
                     </div>
                     <div class="rounded-full bg-blue-200 p-2 -mt-14">
                         <img src="img/upload-cloud.svg" alt="">
@@ -168,11 +173,109 @@
                     <p class="font-semibold text-lg">Upload file to encrypt</p>
                     <p class="font-semibold text-sm text-gray-500 p-4">Upload any .txt file to encrypt</p>
 
-                    <a href="#"> <button
+
+
+
+
+
+                    <div x-data="{ modelOpen: false }">
+                        <button @click="modelOpen =!modelOpen"
                             class="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring px-20 focus:border-blue-300 w-full font-semibold flex gap-2">
                             <img src="img/upload-cloud.svg" alt="">
                             <p>Upload File</p>
-                        </button></a>
+
+                        </button>
+
+                        <div x-show="modelOpen"
+                            class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
+                            aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                            <div class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
+                                <div x-cloak @click="modelOpen = true" x-show="modelOpen"
+                                    x-transition:enter="transition ease-out duration-300 transform"
+                                    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                    x-transition:leave="transition ease-in duration-200 transform"
+                                    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                                    class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-60"
+                                    aria-hidden="true"></div>
+
+                                <div x-cloak x-show="modelOpen"
+                                    x-transition:enter="transition ease-out duration-300 transform"
+                                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                    x-transition:leave="transition ease-in duration-200 transform"
+                                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                    class="inline-block w-fit max-w-md p-6 my-10 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl xl:max-w-xl"
+                                    style="z-index: 100;">
+                                    <div class="flex items-center justify-between">
+                                        <h1 class="text-xl w-full font-bold text-gray-800 ">
+                                            Encrypt File</h1>
+
+
+                                    </div>
+
+                                    <p class="mt-2 text-md text-gray-800 w-fit ">
+                                        complete the form to encrypt your data
+                                    </p>
+
+                                    <form action="" method="post" enctype="multipart/form-data">
+
+                                        <div class="py-2">
+                                            <label for="textFile" class=" text-gray-600 text-sm font-medium">Text
+                                                File</label><br>
+                                            <input type="file" id="textFile" name="textFile"
+                                                class="p-2 w-full border rounded-lg bg-white cursor-pointer text-gray-400"
+                                                accept=".txt">
+
+
+
+                                        </div>
+                                        <div class="py-2">
+                                            <label for="imageFile" class=" text-gray-600 text-sm font-medium">Image
+                                                File</label><br>
+                                            <input type="file" id="imageFile" name="imageFile"
+                                                class="p-2 w-full border rounded-lg bg-white cursor-pointer text-gray-400"
+                                                accept="image/*">
+
+                                        </div>
+
+
+                                        <div class="mb-4 py-2">
+                                            <label for="name" class="block text-gray-600 text-sm font-medium">Output
+                                                file name</label>
+                                            <input type="name" id="name" name="name"
+                                                class=" p-2 w-full border rounded-md"
+                                                placeholder="provide a name for your encrypted file">
+                                        </div>
+
+
+
+
+
+                                    </form>
+
+                                    <div class="flex justify-center mt-6">
+                                        <button for="show" @click="modelOpen = false" type="button"
+                                            class="mr-2 w-1/2 py-2 text-sm tracking-wide capitalize transition-colors border border-gray-300 duration-200 transform bg-white hover:bg-gray-200 rounded-md">
+                                            Cancel
+                                        </button>
+                                        <button for="show" @click="modelOpen = false" type="button"
+                                            class="justify-center bg-blue-500 text-white hover:bg-blue-600 focus:ring focus:outline-none shadow-md focus:ring-gray-100 font-medium rounded-lg text-sm w-1/2 py-2.5 text-center inline-flex items-center">
+                                            <span><input type="submit" value="Encrypt File"></span>
+                                        </button>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
                 </div>
             </div>
 

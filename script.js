@@ -11,3 +11,5 @@ function submitForm(event) {
 function logout() {
     window.location.href = "index.html";
 }
+
+
