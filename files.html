@@ -86,10 +86,10 @@
 
                                 </button>
 
-                                <div x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto"
+                                <div x-show="modelOpen" class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
                                     aria-labelledby="modal-title" role="dialog" aria-modal="true">
                                     <div
-                                        class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
+                                        class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
                                         <div x-cloak @click="modelOpen = true" x-show="modelOpen"
                                             x-transition:enter="transition ease-out duration-300 transform"
                                             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
@@ -146,14 +146,14 @@
         </div>
 
 
-        <div class="p-10 h-screen w-full">
-            <div class="flex flex-col gap-2 fixed">
+        <div class="p-10 w-full">
+            <div class="flex flex-col gap-2">
                 <h1 class="font-bold text-xl">Encrypt Your files</h1>
                 <p class="font-semibold text-sm text-gray-500">Upload all your files to encrypt them.</p>
             </div>
 
 
-            <div class="h-full flex items-center justify-center">
+            <div class=" py-10 flex items-center justify-center">
                 <div class=" shadow border border-gray-200 w-full h-4/5">
                     <div class="flex justify-between items-center px-10 py-5 border-b">
                         <h1 class="font-semibold text-xl">
