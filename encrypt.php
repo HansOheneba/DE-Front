@@ -1,3 +1,27 @@
+<?php
+
+require_once __DIR__ . '/jwtHandler.php';
+session_start();
+
+
+$token = isset($_SESSION['authToken']) ? json_decode($_SESSION['authToken']) : null;
+
+
+
+    $decodedData = decodeToken($token);
+
+
+    $responseData = [
+        'userID' => $decodedData->userID,
+        'username' => $decodedData->username,
+        'name' => $decodedData->name,
+        'email' => $decodedData->email,
+        'dateJoined' => $decodedData->dateJoined
+    ];
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +83,7 @@
             </div>
 
 
-
+          
 
             <div>
                 <a href="settings.html">
@@ -72,12 +96,15 @@
                 </a>
                 <hr>
                 <div class="flex pl-2 py-3">
+                <?php if (isset($name) && isset($email)): ?>
                     <div class="bg-blue-100 rounded-full h-fit p-2">
                         <img src="img/user.svg" alt="">
                     </div>
                     <div class="pl-2 w-full">
                         <div class="flex justify-between items-center">
-                            <p class="font-semibold">Hans Opoku</p>
+                        <p class="font-semibold"><?php echo $name; ?></p>
+
+                           
 
                             <div x-data="{ modelOpen: false }">
                                 <button @click="modelOpen =!modelOpen"
@@ -139,8 +166,9 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-500">hansoheneba.io@gmai.com</p>
+                        <p class="text-sm text-gray-500"><?php echo $email; ?></p> 
                     </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
