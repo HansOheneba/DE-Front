@@ -37,6 +37,7 @@ function submitForm() {
             })
             .then(apiRes => apiRes.json())
             .then(apiData => {
+                sessionStorage.setItem('userData', apiData)
                 console.log('API Response:', apiData);
                 
                

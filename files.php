@@ -39,7 +39,7 @@
 
 
                 <div>
-                    <a href="encrypt.html">
+                    <a href="encrypt.php">
                         <button style="background-image: url('img/home.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center  py-3 rounded-lg">
                             <p class="text-left pl-12  font-semibold">
@@ -47,7 +47,7 @@
                             </p>
                         </button>
                     </a>
-                    <a href="files.html">
+                    <a href="files.php">
                         <button style="background-image: url('img/3-layers.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center bg-blue-100 py-3 rounded-lg">
                             <p class="text-left pl-12 font-semibold text-blue-500">
@@ -62,7 +62,7 @@
 
 
             <div>
-                <a href="settings.html">
+                <a href="settings.php">
                     <button style="background-image: url('img/settings.svg'); background-position-x:4%;"
                         class="w-full bg-no-repeat bg-center py-3 rounded-lg my-3">
                         <p class="text-left pl-12 font-semibold">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="pl-2 w-full">
                         <div class="flex justify-between items-center">
-                            <p class="font-semibold">Hans Opoku</p>
+                            <p id="username" class="font-semibold username">Hans Opoku</p>
                             <style>
                                 [x-cloak] {
                                     display: none
@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-500">hansoheneba.io@gmai.com</p>
+                        <p id="userEmail" class=" userEmail text-sm text-gray-500">hansoheneba.io@gmai.com</p>
                     </div>
                 </div>
             </div>

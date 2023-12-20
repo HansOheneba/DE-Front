@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,7 +40,7 @@
 
 
                 <div>
-                    <a href="encrypt.html">
+                    <a href="encrypt.php">
                         <button style="background-image: url('img/home.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center  py-3 rounded-lg">
                             <p class="text-left pl-12  font-semibold">
@@ -47,7 +48,7 @@
                             </p>
                         </button>
                     </a>
-                    <a href="files.html">
+                    <a href="files.php">
                         <button style="background-image: url('img/3-layers.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center py-3 rounded-lg">
                             <p class="text-left pl-12 font-semibold">
@@ -62,7 +63,7 @@
 
 
             <div>
-                <a href="settings.html">
+                <a href="settings.php">
                     <button style="background-image: url('img/settings.svg'); background-position-x:4%;"
                         class="w-full bg-no-repeat bg-center py-3 rounded-lg my-3 bg-blue-100">
                         <p class="text-left pl-12 font-semibold text-blue-500">
@@ -77,7 +78,7 @@
                     </div>
                     <div class="pl-2 w-full">
                         <div class="flex justify-between items-center">
-                            <p class="font-semibold">Hans Opoku</p>
+                            <p id="username" class="font-semibold">Hans Opoku</p>
                             <style>
                                 [x-cloak] {
                                     display: none
@@ -91,10 +92,10 @@
 
                                 </button>
 
-                                <div x-show="modelOpen" class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
+                                <div x-show="modelOpen"
+                                    class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
                                     aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                                    <div
-                                        class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
+                                    <div class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
                                         <div x-cloak @click="modelOpen = true" x-show="modelOpen"
                                             x-transition:enter="transition ease-out duration-300 transform"
                                             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
@@ -142,7 +143,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-500">hansoheneba.io@gmai.com</p>
+                        <p id="userEmail" class="text-sm text-gray-500">hansoheneba.io@gmai.com</p>
                     </div>
                 </div>
             </div>
@@ -157,113 +158,119 @@
                 <h1 class="font-bold text-xl">Settings</h1>
             </div>
             <div class="border border-gray-200 p-10 rounded-lg flex flex-col justify-center">
-                
+
                 <div class="w-1/2 mx-auto flex flex-col gap-5">
                     <h1 class="font-bold text-lg py-5">Account Settings</h1>
                     <div class="mb-4">
-                        <label for="name" class="block  text-sm font-medium">
-                            Your name</label>
-                        <input type="name" id="name" name="name"
-                            class=" p-2 w-full border rounded-md text-gray-500" value="Hans Opoku" disabled>
+                        <label for="currentUsername" class="block text-sm font-medium">
+                            Your name
+                        </label>
+                        <input type="text" id="currentUsername" name="currentName" class="p-2 w-full border rounded-md text-gray-500"
+                            />
                     </div>
                     <div class="mb-4">
-                        <label for="email" class="block  text-sm font-medium">
-                            Your email</label>
-                        <input type="email" id="email" name="email"
-                            class=" p-2 w-full border rounded-md text-gray-500 " value="hansoheneba.io@gmail.com" disabled>
+                        <label for="currentEmail" class="block text-sm font-medium">
+                            Your email
+                        </label>
+                        <input type="email" id="currentEmail" name="currentEmail" class="p-2 w-full border rounded-md text-gray-500"/>
                     </div>
 
-                <div>
-                    <div class="py-3">
+                    <div>
+                        <div class="py-3">
 
 
 
-                        <div x-data="{ modelOpen: false }">
-                            <button @click="modelOpen =!modelOpen" class="text-blue-500 underline font-semibold">Change</button>
+                            <div x-data="{ modelOpen: false }">
+                                <button @click="modelOpen =!modelOpen"
+                                    class="text-blue-500 underline font-semibold">Change</button>
 
-                            <div x-show="modelOpen"
-                                class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
-                                aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                                <div class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
-                                    <div x-cloak @click="modelOpen = true" x-show="modelOpen"
-                                        x-transition:enter="transition ease-out duration-300 transform"
-                                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                                        x-transition:leave="transition ease-in duration-200 transform"
-                                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                                        class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-60"
-                                        aria-hidden="true"></div>
+                                <div x-show="modelOpen"
+                                    class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
+                                    aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                    <div class="flex items-center justify-center px-4 text-center sm:block sm:p-0">
+                                        <div x-cloak @click="modelOpen = true" x-show="modelOpen"
+                                            x-transition:enter="transition ease-out duration-300 transform"
+                                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                            x-transition:leave="transition ease-in duration-200 transform"
+                                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                                            class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-60"
+                                            aria-hidden="true"></div>
 
-                                    <div x-cloak x-show="modelOpen"
-                                        x-transition:enter="transition ease-out duration-300 transform"
-                                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                                        x-transition:leave="transition ease-in duration-200 transform"
-                                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                        class="inline-block w-fit max-w-md p-6 my-10 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl xl:max-w-xl"
-                                        style="z-index: 100;">
-                                        <div class="py-4">
-                                            <h1 class="text-xl w-full text-left font-bold text-gray-800 pr-20 ">
-                                                Change your password</h1>
+                                        <div x-cloak x-show="modelOpen"
+                                            x-transition:enter="transition ease-out duration-300 transform"
+                                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                            x-transition:leave="transition ease-in duration-200 transform"
+                                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                            class="inline-block w-fit max-w-md p-6 my-10 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl xl:max-w-xl"
+                                            style="z-index: 100;">
+                                            <div class="py-4">
+                                                <h1 class="text-xl w-full text-left font-bold text-gray-800 pr-20 ">
+                                                    Change your password</h1>
+                                            </div>
+
+                                            <div class="mb-4">
+                                                <label for="name" class="block  text-sm font-medium">
+                                                    Current Password</label>
+                                                <input type="password" id="oldPassword" name="oldPassword"
+                                                    class=" p-2 w-full border rounded-md text-gray-500"
+                                                    placeholder="type in your current password">
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="name" class="block  text-sm font-medium">
+                                                    New Password</label>
+                                                <input type="password" id="newPassword" name="newPassword"
+                                                    class=" p-2 w-full border rounded-md text-gray-500"
+                                                    placeholder="type in your new password">
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="name" class="block  text-sm font-medium">
+                                                    Confirm New Password</label>
+                                                <input type="password" id="passwordConfirm" name="passwordConfirm"
+                                                    class=" p-2 w-full border rounded-md text-gray-500"
+                                                    placeholder="type in your new password">
+                                            </div>
+
+
+
+
+                                            <div class="flex justify-center mt-6">
+                                                <button for="show" @click="modelOpen = false" type="button"
+                                                    class="mr-2 w-1/2 py-2 text-sm tracking-wide capitalize transition-colors border border-gray-300 duration-200 transform bg-white hover:bg-gray-200 rounded-md">
+                                                    Cancel
+                                                </button>
+                                                <button for="show" @click="modelOpen = false" type="button"
+                                                    class="justify-center text-white text-md bg-blue-500 hover:bg-blue-600 border border-gray-200 focus:ring-4 focus:outline-none shadow-md focus:ring-gray-100 font-medium rounded-lg text-sm w-1/2 py-2.5 text-center inline-flex items-center">
+                                                    <span>Save</span>
+                                                </button>
+
+
+                                            </div>
+
                                         </div>
-
-                                        <div class="mb-4">
-                                            <label for="name" class="block  text-sm font-medium">
-                                                Current Password</label>
-                                            <input type="password" id="password" name="password"
-                                                class=" p-2 w-full border rounded-md text-gray-500" placeholder="type in your current password">
-                                        </div>
-                                        <div class="mb-4">
-                                            <label for="name" class="block  text-sm font-medium">
-                                                New Password</label>
-                                            <input type="password" id="password" name="password"
-                                                class=" p-2 w-full border rounded-md text-gray-500" placeholder="type in your new password">
-                                        </div>
-                                        <div class="mb-4">
-                                            <label for="name" class="block  text-sm font-medium">
-                                                Confirm New Password</label>
-                                            <input type="password" id="password" name="password"
-                                                class=" p-2 w-full border rounded-md text-gray-500" placeholder="type in your new password">
-                                        </div>
-                                        
-
-
-
-                                        <div class="flex justify-center mt-6">
-                                            <button for="show" @click="modelOpen = false" type="button"
-                                                class="mr-2 w-1/2 py-2 text-sm tracking-wide capitalize transition-colors border border-gray-300 duration-200 transform bg-white hover:bg-gray-200 rounded-md">
-                                                Cancel
-                                            </button>
-                                            <button for="show" @click="modelOpen = false" type="button"
-                                                class="justify-center text-white text-md bg-blue-500 hover:bg-blue-600 border border-gray-200 focus:ring-4 focus:outline-none shadow-md focus:ring-gray-100 font-medium rounded-lg text-sm w-1/2 py-2.5 text-center inline-flex items-center">
-                                                <span>Save</span>
-                                            </button>
-
-
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
+
+
+
+
+
                         </div>
 
-
-
-
-
-                       </div>
-    
                         <div class="mb-4">
                             <label for="name" class="block  text-sm font-medium">
                                 Your password</label>
-                            <input type="password" id="password" name="password"
+                            <input type="password" id="dummyPassword" name="dummyPassword"
                                 class=" p-2 w-full border rounded-md text-gray-500" value="Nice try xDDD" disabled>
                         </div>
-                </div>
+                    </div>
 
                     <div class="border border-gray-300 p-5 rounded-lg">
                         <div x-data="{ modelOpen: false }">
-                            <button @click="modelOpen =!modelOpen" class="text-red-500 underline font-semibold">Delete my account</button>
+                            <button @click="modelOpen =!modelOpen" class="text-red-500 underline font-semibold">Delete
+                                my account</button>
 
                             <div x-show="modelOpen"
                                 class="fixed flex justify-center items-center inset-0 z-50 overflow-y-auto"
@@ -294,7 +301,8 @@
                                         </div>
 
                                         <p class="mt-2 text-md text-gray-800 text-left w-fit ">
-                                            Are you sure you want to delete your account? <br>If you still wish to proceed, please click on the <br> “Delete Account” button below.
+                                            Are you sure you want to delete your account? <br>If you still wish to
+                                            proceed, please click on the <br> “Delete Account” button below.
                                         </p>
 
 
@@ -317,24 +325,25 @@
                             </div>
                         </div>
                         <p class="text-sm py-3">
-                            You will receive an email to confirm your decision. Please note that all your personal data associated with this account will be permanently deleted.This action is irreversible.
+                            You will receive an email to confirm your decision. Please note that all your personal data
+                            associated with this account will be permanently deleted.This action is irreversible.
                         </p>
-                        
+
                     </div>
 
 
-            
+
 
                 </div>
             </div>
-            </div>
+        </div>
 
-            
 
-          
 
-            </div>
-           
+
+
+        </div>
+
 
         </div>
     </section>

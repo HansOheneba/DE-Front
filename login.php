@@ -55,7 +55,7 @@
             </form>
         </div>
     </section>
-    <script src="login.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

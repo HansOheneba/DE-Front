@@ -89,7 +89,7 @@ session_start()
         </div>
     </section>
 
-    <script src="signup.js" defer></script>
+    <script src="signup.js"></script>
 </body>
 
 </html>

@@ -1,23 +1,4 @@
-<?php
 
-require_once __DIR__ . '/jwtHandler.php';
-session_start();
-
-
-$authToken = isset($_SESSION['authToken']) ? json_decode($_SESSION['authToken']) : null;
-
-
-if ($authToken) {
-
-  decodeToken($authToken);
-
-
-} else {
-
-    header("Location: login.html");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +12,7 @@ if ($authToken) {
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link href="output.css" rel="stylesheet">
+    <script src="script.js"></script>
     <title>Data Encryption</title>
     <style>
         [x-cloak] {
@@ -59,7 +41,7 @@ if ($authToken) {
 
 
                 <div>
-                    <a href="encrypt.html">
+                    <a href="encrypt.php">
                         <button style="background-image: url('img/home.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center bg-blue-100 py-3 rounded-lg">
                             <p class="text-left pl-12 text-blue-500 font-semibold">
@@ -67,7 +49,7 @@ if ($authToken) {
                             </p>
                         </button>
                     </a>
-                    <a href="files.html">
+                    <a href="files.php">
                         <button style="background-image: url('img/3-layers.svg'); background-position-x:4%;"
                             class="w-full bg-no-repeat bg-center py-3 rounded-lg">
                             <p class="text-left pl-12 font-semibold">
@@ -82,7 +64,7 @@ if ($authToken) {
           
 
             <div>
-                <a href="settings.html">
+                <a href="settings.php">
                     <button style="background-image: url('img/settings.svg'); background-position-x:4%;"
                         class="w-full bg-no-repeat bg-center py-3 rounded-lg my-3">
                         <p class="text-left pl-12 font-semibold">
@@ -92,13 +74,12 @@ if ($authToken) {
                 </a>
                 <hr>
                 <div class="flex pl-2 py-3">
-                <?php if (isset($name) && isset($email)): ?>
                     <div class="bg-blue-100 rounded-full h-fit p-2">
                         <img src="img/user.svg" alt="">
                     </div>
                     <div class="pl-2 w-full">
                         <div class="flex justify-between items-center">
-                        <p class="font-semibold"><?php echo $name; ?></p>
+                        <p id="username" class="font-semibold"></p>
 
                            
 
@@ -162,9 +143,8 @@ if ($authToken) {
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-500"><?php echo $email; ?></p> 
+                        <p id="userEmail" class="text-sm text-gray-500">hansoheneba.io@gmai.com</p>
                     </div>
-                    <?php endif; ?>
                 </div>
             </div>
 
@@ -305,7 +285,7 @@ if ($authToken) {
 
         </div>
     </section>
-    <script src="script.js"></script>
+    
 </body>
 
 </html>
