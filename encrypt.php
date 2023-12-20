@@ -4,23 +4,19 @@ require_once __DIR__ . '/jwtHandler.php';
 session_start();
 
 
-$token = isset($_SESSION['authToken']) ? json_decode($_SESSION['authToken']) : null;
+$authToken = isset($_SESSION['authToken']) ? json_decode($_SESSION['authToken']) : null;
 
 
+if ($authToken) {
 
-    $decodedData = decodeToken($token);
-
-
-    $responseData = [
-        'userID' => $decodedData->userID,
-        'username' => $decodedData->username,
-        'name' => $decodedData->name,
-        'email' => $decodedData->email,
-        'dateJoined' => $decodedData->dateJoined
-    ];
+  decodeToken($authToken);
 
 
+} else {
 
+    header("Location: login.html");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,3 +1,8 @@
+<?php 
+session_start()
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,7 +78,7 @@
 
                 <div class="pt-5 flex justify-center">
                     <p class="text-gray-500 text-sm">Already have an account? <a class="text-blue-500 font-semibold"
-                            href="login.html">Log in</a></p>
+                            href="login.php">Log in</a></p>
                 </div>
 
                 <div id="messageContainer" class="message-container hidden">

@@ -50,7 +50,7 @@
             </button>
                 <div class="pt-5 flex justify-center">
                     <p class="text-gray-500 text-sm">Don't have an account? <a class="text-blue-500 font-semibold"
-                            href="index.html">Sign up</a></p>
+                            href="index.php">Sign up</a></p>
                 </div>
             </form>
         </div>
