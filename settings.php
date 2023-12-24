@@ -18,6 +18,16 @@
             display: none
         }
     </style>
+
+<script>
+        const userDataString = sessionStorage.getItem('userData');
+        
+
+        if (!userDataString) {
+            window.location.href = 'login.php';
+        }
+        
+    </script>
 </head>
 
 <body style="font-family: 'Inter', sans-serif;">
@@ -312,7 +322,7 @@
                                                 class="mr-2 w-1/2 py-2 text-sm tracking-wide capitalize transition-colors border border-gray-300 duration-200 transform bg-white hover:bg-gray-200 rounded-md">
                                                 Cancel
                                             </button>
-                                            <button @click="logout"
+                                            <button  @click="deleteUser" type="button"
                                                 class="justify-center text-white text-md bg-red-500 hover:bg-red-600 border border-gray-200 focus:ring-4 focus:outline-none shadow-md focus:ring-gray-100 font-medium rounded-lg text-sm w-1/2 py-2.5 text-center inline-flex items-center">
                                                 <span>Delete Account</span>
                                             </button>

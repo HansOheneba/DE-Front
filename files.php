@@ -17,6 +17,16 @@
             display: none
         }
     </style>
+
+<script>
+        const userDataString = sessionStorage.getItem('userData');
+        
+
+        if (!userDataString) {
+            window.location.href = 'login.php';
+        }
+        
+    </script>
 </head>
 
 <body style="font-family: 'Inter', sans-serif;">

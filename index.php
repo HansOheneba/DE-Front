@@ -72,7 +72,7 @@ session_start()
 
                 <button type="submit"
                     class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 w-full font-semibold "
-                    onclick="submitForm()">
+                    onclick="submitSignupForm()">
                     Create Account
                 </button>
 
@@ -89,7 +89,7 @@ session_start()
         </div>
     </section>
 
-    <script src="signup.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

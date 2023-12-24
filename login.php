@@ -45,7 +45,7 @@
 
                 <button type="submit"
                 class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 w-full font-semibold "
-                onclick="submitForm()">
+                onclick="submitLoginForm()">
                 login
             </button>
                 <div class="pt-5 flex justify-center">
