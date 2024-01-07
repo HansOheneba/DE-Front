@@ -20,7 +20,7 @@
     </style>
 
 <script>
-        const userDataString = sessionStorage.getItem('userData');
+        const userDataString = sessionStorage.getItem('authToken');
         
 
         if (!userDataString) {

@@ -1,11 +1,9 @@
 function submitSignupForm() {
-
     const name = document.getElementById('name').value;
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-
 
     if (!name || !username || !email || !password || !confirmPassword) {
         alert('Please fill in all fields.');
@@ -33,37 +31,19 @@ function submitSignupForm() {
     })
         .then(response => response.json())
         .then(data => {
-            if (data.data.token) {
+            if (data.status === 201 && data.data.token) {
                 sessionStorage.setItem('authToken', data.data.token);
-
-                fetch('http://localhost/DE-Back/v1/decode.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${data.data.token}`
-                    },
-                    body: JSON.stringify({ token: data.data.token }),
-                })
-                    .then(apiRes => apiRes.json())
-                    .then(apiData => {
-                        sessionStorage.setItem('userData', JSON.stringify(apiData));
-                        window.location.href = apiData.redirect;
-                    })
-                    .catch(apiError => {
-                        console.error('API Error:', apiError);
-                    });
-
                 console.log('Token saved in sessionStorage.');
+
+                window.location.href = 'encrypt.php';
             } else {
-                alert(data.message || 'Login failed.');
+                alert(data.message || 'Registration failed.');
             }
         })
         .catch(error => {
             console.error('Error:', error);
         });
-
 }
-
 
 function submitLoginForm() {
     const email = document.getElementById('email').value;
@@ -90,25 +70,9 @@ function submitLoginForm() {
         .then(data => {
             if (data.data.token) {
                 sessionStorage.setItem('authToken', data.data.token);
-
-                fetch('http://localhost/DE-Back/v1/decode.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${data.data.token}`
-                    },
-                    body: JSON.stringify({ token: data.data.token }),
-                })
-                    .then(apiRes => apiRes.json())
-                    .then(apiData => {
-                        sessionStorage.setItem('userData', JSON.stringify(apiData));
-                        window.location.href = apiData.redirect;
-                    })
-                    .catch(apiError => {
-                        console.error('API Error:', apiError);
-                    });
-
                 console.log('Token saved in sessionStorage.');
+
+                window.location.href = 'encrypt.php';
             } else {
                 alert(data.message || 'Login failed.');
             }
@@ -119,47 +83,52 @@ function submitLoginForm() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const userDataString = sessionStorage.getItem('userData');
+    const authToken = sessionStorage.getItem('authToken');
 
-    if (userDataString) {
-        const userData = JSON.parse(userDataString);
-        const userName = userData.username;
-        const userEmail = userData.email;
-
-
-        console.log('User Name:', userName);
-        console.log('User Email:', userEmail);
-
-
-        const usernameElement = document.getElementById('username');
-        const emailElement = document.getElementById('userEmail');
-        const currentUsernameInput = document.getElementById('currentUsername');
-        const currentEmailInput = document.getElementById('currentEmail');
-
-        if (usernameElement) {
-
-            usernameElement.textContent = userName;
-        }
-
-        if (emailElement) {
-
-            emailElement.textContent = userEmail;
-
-        }
-        if (currentUsernameInput) {
-
-            currentUsernameInput.value = userName;
-            currentUsernameInput.disabled = true;
-        }
-
-        if (currentEmailInput) {
-
-            currentEmailInput.value = userEmail;
-            currentEmailInput.disabled = true;
-        }
+    if (authToken) {
+        fetch('http://localhost/DE-Back/v1/decode.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
+            },
+            body: JSON.stringify({ token: authToken }),
+        })
+        .then(apiRes => apiRes.json())
+        .then(apiData => {
+            updateUI(apiData);
+        })
+        .catch(apiError => {
+            console.error('API Error:', apiError);
+        });
     }
 });
 
+function updateUI(userData) {
+ 
+    const usernameElement = document.getElementById('username');
+    const emailElement = document.getElementById('userEmail');
+    const currentUsernameInput = document.getElementById('currentUsername');
+    const currentEmailInput = document.getElementById('currentEmail');
+
+    if (usernameElement) {
+        usernameElement.textContent = userData.username;
+    }
+
+    if (emailElement) {
+        emailElement.textContent = userData.email;
+    }
+
+    if (currentUsernameInput) {
+        currentUsernameInput.value = userData.username;
+        currentUsernameInput.disabled = true;
+    }
+
+    if (currentEmailInput) {
+        currentEmailInput.value = userData.email;
+        currentEmailInput.disabled = true;
+    }
+}
 
 function logout() {
 
